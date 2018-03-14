@@ -10,3 +10,6 @@
  * Your first name must be stored in a variable.
  *
  */
+$name = "Alcide";
+print "Hello World \n";
+print "Welcome $name" ;
