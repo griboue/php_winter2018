@@ -2,6 +2,7 @@
 
 $a = 'red';
 
+// No default CASE!!!
 switch ($a) {
 	case "red":
 		echo "Your favorite color is red";

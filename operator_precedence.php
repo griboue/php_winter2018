@@ -1,6 +1,6 @@
 <?php
 
-$a = 4;
+$a = 1;
 
-// may print either 5 or 6
+// may print either 3 or 4
 echo $a + $a++;
