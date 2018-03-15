@@ -1,10 +1,10 @@
 <?php
 
-//$myArray = explode (" ", 'Programming in PHP is fun!');
+$myArray = explode (" ", 'Programming in PHP is fun!');
 
 //$myArray = array('Programming', 'in', 'PHP', 'is', 'fun!');
 
-$myArray = ['Programming', 'in', 'PHP', 'is', 'fun!'];
+//$myArray = ['Programming', 'in', 'PHP', 'is', 'fun!'];
 
 /*$myArray[] = 'Programming';
 $myArray[] = 'in';
