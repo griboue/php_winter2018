@@ -10,3 +10,9 @@
  * Your first name must be stored in a variable.
  *
  */
+
+$name = "Jiahong";
+
+echo "Hello World!" . PHP_EOL;
+echo "Hi, I'm " .$name . PHP_EOL;
+
