@@ -2,6 +2,6 @@
 
 // Print this project directory's file listing to screen
 
-$list = scandir('../');
+$list = scandir('.');
 
-var_dump($list);
+print_r($list);
