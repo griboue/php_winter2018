@@ -11,8 +11,8 @@
  *
  */
 
-$firstName = "Siqi";
+$firstName = "Siqi, Cedric, Antoine";
 echo "Hello World ! ";
-echo "My name is " . $firstName . ", I LOVE MYSELF <3 ";
+echo "Our names are " . $firstName . ", WE LOVE OURSELVES <3 ";
 /*fwrite(STDOUT,"Hello World!");
 fwrite(STDOUT,"Hello World!".$firstName);*/
