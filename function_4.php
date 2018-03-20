@@ -3,7 +3,7 @@
 // PHP 7 example!
 declare(strict_types = 1);
 
-function getTotal(int $n1, integer $n2)
+function getTotal(int $n1, int $n2)
 {
 	return $n1 + $n2;
 }
