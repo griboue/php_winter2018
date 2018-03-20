@@ -16,6 +16,8 @@
 
 $matches = array();
 
+$match = array();
+
 // Find if Bill or William is present in a string.
 $pattern = '/Bill|William/';
 $test_strings = array('Three Billy Goats Gruff', 'Little Richard',
@@ -28,6 +30,32 @@ foreach ($test_strings as $string) {
         echo ": Not there.\n";
     }
 }
+
+// Find if Bill or William is present in a string.
+/*$pattern = '/\bBill\b|\bWilliam\b/';
+$test_strings = array('Three Billy Goats Gruff', 'Little Richard',
+    'William Styron', 'Free Willy');
+foreach ($test_strings as $string) {
+    echo $string;
+    if (preg_match($pattern, $string)) {
+        echo ": Found it!\n";
+    } else {
+        echo ": Not there.\n";
+    }
+}*/
+
+// Find if Bill or William is present in a string.
+/*$pattern = '/Three.+Billy/'; // 's' modifier needed
+$test_strings = array("Three \n Billy Goats Gruff", 'Little Richard',
+    'William Styron', 'Free Willy');
+foreach ($test_strings as $string) {
+    echo $string;
+    if (preg_match($pattern, $string)) {
+        echo ": Found it!\n";
+    } else {
+        echo ": Not there.\n";
+    }
+}*/
 
 //Simple literal
 $subject = 'this is a test string containing some text';
