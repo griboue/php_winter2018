@@ -3,17 +3,17 @@
 //Using metacharacters
 $subject = 'this is a test string containing some text';
 $pattern = '/test|text/';
-preg_match($pattern, $subject, $matches);
-/* echo __LINE__.': ';
+/*preg_match($pattern, $subject, $matches);
+echo __LINE__.': ';
 print_r($matches); */
 
 
 //Using the metacharacter dot(.)
 $subject = 'this is a test string containing some text';
-$pattern = '/test ./';
-/* preg_match($pattern, $subject, $matches);
+$pattern = '/test\s./';
+/*preg_match($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: Matches any single character except newline characters.
 //Note: Use sparingly because it can match cases where it should not.
 //Note: the . is considered "greedy"
@@ -22,9 +22,9 @@ print_r($matches); */
 //Using ^ and $ position anchor metacharacters
 $subject = trim(' this is a test string containing some text ');
 $pattern = '/^th/';
-/* preg_match($pattern, $subject, $matches);
- echo __LINE__.': ';
-print_r($matches); */
+/*preg_match($pattern, $subject, $matches);
+echo __LINE__.': ';
+print_r($matches);*/
 //Note: ^ Matches the position immediately before the start of the string.
 //Note: $ Matches the position immediately after the end of the string.
 //Note: It is a best practice to trim any spaces from the front of the string prior to matching.
@@ -33,11 +33,11 @@ print_r($matches); */
 
 
 //Using \A and \Z position anchor metacharacters
-$subject = trim(' this is a test string containing some text ');
-$pattern = '/\Ath/';
-preg_match($pattern, $subject, $matches);
-//echo __LINE__.': ';
-//print_r($matches);
+$subject = trim(' this is a test th string containing some text ');
+$pattern = '/th/';
+/*preg_match($pattern, $subject, $matches);
+echo __LINE__.': ';
+print_r($matches);*/
 //Note: \A only matches the position immediatly before the start of the string.
 //Note: \Z only matched the position immediatly after the end of the string.
 //Note: These are not supported in all languages.
@@ -45,10 +45,10 @@ preg_match($pattern, $subject, $matches);
 
 //Zero-length matches using position anchor metacharacters
 $subject = trim(' This is a latter 12 tall.  ');
-$pattern = '/\d*/';
-/* preg_match_all($pattern, $subject, $matches);
+$pattern = '/\d+/';
+/*preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: Be careful with this, depending on use, this may or maynot be desired.
 //Note: \Z only matched the position immediatly after the end of the string.
 //Note: These are not supported in all languages.
@@ -96,9 +96,9 @@ print_r($matches); */
 //Limiting repetition metacharacters + and * with {}
 $subject = trim(' this is the year 2011 ');
 $pattern = '/[1-9][0-9]{2}/';
-/* preg_match($pattern, $subject, $matches);
+/*preg_match($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: {0,} =  *; {1,} = +
 
 
