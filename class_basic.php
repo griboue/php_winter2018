@@ -3,11 +3,12 @@
 class Car
 {
 
-    const TYPE = 'COMPACT';
+    const TYPE = 'Compact';
 
     public $specialFeature = true;
 
-    protected  $color;
+    protected $color;
+
     protected $model;
 
     public function __construct($value1, $value2)
