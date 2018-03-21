@@ -44,11 +44,11 @@ preg_match($pattern, $subject, $matches);
 
 
 //Zero-length matches using position anchor metacharacters
-$subject = trim(' This is a latter 12 tall.  ');
-$pattern = '/\d*/';
-/* preg_match_all($pattern, $subject, $matches);
+/*$subject = trim(' This is a latter 12 tall.  ');
+$pattern = '/\d+/';
+ preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: Be careful with this, depending on use, this may or maynot be desired.
 //Note: \Z only matched the position immediatly after the end of the string.
 //Note: These are not supported in all languages.
@@ -78,9 +78,9 @@ print_r($matches); */
 $subject = trim(' this is the color blue it is a nice colour ');
 //$pattern = '/colou?r/';// or
 $pattern = '/co(lou)r/';// grouped optional tokens
-/* preg_match_all($pattern, $subject, $matches);
+/*preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: Why does the second pattern match "lou"?
 
 
@@ -105,9 +105,9 @@ print_r($matches); */
 //Greediness -- Be careful with this and the repeating metacharacters
 $subject = trim(' It is a <strong>Great</strong> day today ');
 $pattern = '/<.+>/';
-/* preg_match($pattern, $subject, $matches);
+/* preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: The + metacharacter is greedy.  It will repeat the preceding character as often as possible
 // and only if that fails, will it backtrack to the plus character and finish the rest of the regex.
 //Note: +, *, {1,} and {0,} are considered greedy
@@ -125,10 +125,10 @@ print_r($matches); */
 
 //Alternative to the ungreedy ? character
 $subject = trim(' It is a <strong>Great</strong> day today ');
-$pattern = '/<[^>]+>/';
-/* preg_match($pattern, $subject, $matches);
+$pattern = '/(?<=>)[^>]+(?=<)/';
+ preg_match($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);
 //Note: Backtracking can be CPU intensive in large loops.
 //Note: No backtracking occurs here.
 

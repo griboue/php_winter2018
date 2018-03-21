@@ -17,7 +17,7 @@
 $matches = array();
 
 // Find if Bill or William is present in a string.
-$pattern = '/Bill|William/';
+/*$pattern = '/Bill|William/';
 $test_strings = array('Three Billy Goats Gruff', 'Little Richard',
     'William Styron', 'Free Willy');
 foreach ($test_strings as $string) {
@@ -27,28 +27,28 @@ foreach ($test_strings as $string) {
     } else {
         echo ": Not there.\n";
     }
-}
+}*/
 
 //Simple literal
-$subject = 'this is a test string containing some text';
+/*$subject = 'this is a test string containing some text';
 $pattern = '/ring/';
-/* preg_match($pattern, $subject, $match);
+ preg_match($pattern, $subject, $match);
 echo __LINE__.': ';
-print_r($match); */
+print_r($match);*/
 
 
 //Using a character class
-$subject = 'over there is a pile of their clothes';
+/*$subject = 'over there is a pile of their clothes';
 $pattern = '/the[ir]/';
-/* preg_match_all($pattern, $subject, $matches);
+preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
 print_r($matches); */
 
 
 //Using a character class range
-$subject = 'over there is a pile of their clothes';
+/*$subject = 'over there is a pile of their clothes';
 $pattern = '/the[e-i]/';
-/* preg_match_all($pattern, $subject, $matches);
+ preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
 print_r($matches); */
 
@@ -71,7 +71,7 @@ print_r($matches); */
 
 
 //Using negated character class range
-$subject = 'over there is a pile of their clothes';
+/*$subject = 'over there is a pile of their clothes';
 $pattern = '/the[^e-im-r]/';
 /* preg_match($pattern, $subject, $matches);
 echo __LINE__.': ';
@@ -81,11 +81,11 @@ print_r($matches); */
 
 
 //Using shorthand character classes
-$subject = 'over there is a pile of their clothes';
+/*$subject = 'over there is a pile of their clothes';
 $pattern = '/the\w/';
-/* preg_match_all($pattern, $subject, $matches);
+preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);*/
 //Note: \w stands for the "word character". Shorthand for [A-Za-z0-9_]
 //Note: \d stands for the "decimal character".  Shorthand for [0-9]
 //Note: \s stands for the "whitespace character". Shorthand for \t\r\n
@@ -103,7 +103,7 @@ print_r($matches); */
 //Use repeating character + with decimal character classes
 $subject = 'Lots of mountains are over 4773 meters high';
 $pattern = '/[0-9]+/';
-/*preg_match_all($pattern, $subject, $matches);
+preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
-print_r($matches); */
+print_r($matches);
 //Repeating charactors: ?,+,*
