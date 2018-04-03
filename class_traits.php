@@ -58,6 +58,11 @@ trait HumanTrait
         return $this->humor ?: null;
     }
 
+    public function get($prop = null)
+    {
+        echo 'From trait';
+    }
+
 }
 
 class Human extends Animal
@@ -68,10 +73,10 @@ class Human extends Animal
 
     public $hasReason = true;
 
-    public function get($prop = null)
+    /*public function get($prop = null)
     {
         return $this->$prop . 'human' ?: null;
-    }
+    }*/
 
 }
 
@@ -107,3 +112,5 @@ $horse = new Horse();
 echo $human->get('hasReason') . PHP_EOL;
 echo $chicken->get('hasReason') . PHP_EOL;
 echo $horse->get('hasReason') . PHP_EOL;
+
+var_dump($human);
