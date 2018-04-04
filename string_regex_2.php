@@ -3,7 +3,7 @@
 //Using metacharacters
 $subject = 'this is a test string containing some text';
 $pattern = '/test|text/';
-preg_match($pattern, $subject, $matches);
+/*preg_match($pattern, $subject, $matches);
 /* echo __LINE__.': ';
 print_r($matches); */
 
@@ -38,8 +38,8 @@ $pattern = '/\Ath/';
 preg_match($pattern, $subject, $matches);
 //echo __LINE__.': ';
 //print_r($matches);
-//Note: \A only matches the position immediatly before the start of the string.
-//Note: \Z only matched the position immediatly after the end of the string.
+//Note: \A only matches the position immediately before the start of the string.
+//Note: \Z only matched the position immediately after the end of the string.
 //Note: These are not supported in all languages.
 
 
@@ -50,7 +50,7 @@ $pattern = '/\d*/';
 echo __LINE__.': ';
 print_r($matches); */
 //Note: Be careful with this, depending on use, this may or maynot be desired.
-//Note: \Z only matched the position immediatly after the end of the string.
+//Note: \Z only matched the position immediately after the end of the string.
 //Note: These are not supported in all languages.
 
 
@@ -61,7 +61,7 @@ $pattern = '/\bstring\b/';
 echo __LINE__.': ';
 print_r($matches); */
 //Note: Allows a word match as opposed to single character matches.
-//Note: The engine considers the word boundry as a word character.
+//Note: The engine considers the word boundary as a word character.
 //Note: The \B is negated version of \b.
 
 //The | alternate metacharacter
@@ -70,8 +70,8 @@ $pattern = '/\b(string|some)\b/';
 /* preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
 print_r($matches); */
-//Note: Allows searches for each alternate seperated by pipe.
-//Note: The engine will match whole words with the grouped boundry like this.
+//Note: Allows searches for each alternate separated by pipe.
+//Note: The engine will match whole words with the grouped boundary like this.
 
 
 //The ? option metacharacter
@@ -136,9 +136,9 @@ print_r($matches); */
 //Lets get just the content between the tags.
 $subject = trim(' It is a <strong>very nice</strong> day today ');
 $pattern = '/(?<=>)[^><]+?(?=<)/s';
-/* preg_match($pattern, $subject, $matches);
+preg_match($pattern, $subject, $matches);
 echo __LINE__. ': ';
-print_r($matches); */
+print_r($matches);
 // The ?<= operator, or the 'lookbehind operator', matches the patter following it but
 // does not return it.  Perfect for starting at the content.
 // The [^<>]+? matches everything but the '>' and '<' and ungreedies with the '?' lazy quantifier.

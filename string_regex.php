@@ -106,4 +106,4 @@ $pattern = '/[0-9]+/';
 /*preg_match_all($pattern, $subject, $matches);
 echo __LINE__.': ';
 print_r($matches); */
-//Repeating charactors: ?,+,*
+    //Repeating charactors: ?,+,*
