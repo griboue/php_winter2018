@@ -6,44 +6,34 @@
  * http://php.net/manual/en/book.pdo.php
  */
 
-$type = $db[$server]["type"];
-$host = $db[$server]["host"];
-$username = $db[$server]["username"];
-$pwd = $db[$server]["pwd"];
-$dbname = $db[$server]["db"];
-$dsn = "$type:host=$host;dbname=$dbname";
-$sql = "SET NAMES utf8";
-try {
-    $pdo = new PDO($dsn, $username, $pwd);
-    $result = $pdo->prepare($sql);
-    $result->execute();
-    //echo "pdo连接mysql成功!";
-} catch (PDOException $e) {
-    echo "ERROR !!";
-    echo "<pre>";
-    print_r($e);
-    echo "</pre>";
-}
-
 function getConnection()
 {
-    if (!isset($link)) {
-        static $link = NULL;
+
+    if (!isset($pdo)) {
+        static $pdo = NULL;
     }
 
-    if ($link === NULL) {
-        $link = mysqli_connect('localhost', 'lightmvcuser', 'testpass', 'lightmvctestdb');
+    if ($pdo === NULL) {
+
+        $type = "mysql";
+        $host = "localhost";
+        $username = "lightmvcuser";
+        $pwd = "123";
+        $dbname = "lightmvctestdb";
+        $dsn = "$type:host=$host;dbname=$dbname";
+
+        $pdo = new PDO($dsn, $username, $pwd);
     }
-    return $link;
+    return $pdo;
 }
 
 function closeConnection()
 {
-    if (!isset($link)) {
-        static $link = NULL;
+    if (!isset($pdo)) {
+        static $pdo = NULL;
         return FALSE;
     } else {
-        mysqli_close($link);
+        $pdo = null;
         return TRUE;
     }
 }
@@ -66,8 +56,8 @@ function getCustomers(array $where = array(), $andOr = 'AND')
         }
         $query = substr($query, 0, -(strlen($andOr)));
     }
-    $link = getConnection();
-    $result = mysqli_query($link, $query);
+    $pdo = getConnection();
+    $result = $pdo->prepare($query);
     return mysqli_fetch_all($result);
 }
 
