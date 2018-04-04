@@ -1,7 +1,7 @@
 <?php
 
 // PHP 7 example!
-declare(strict_types = 0);
+declare(strict_types = 1);
 
 function getTotal(int $n1, int $n2)
 {
