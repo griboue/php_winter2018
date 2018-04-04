@@ -50,7 +50,7 @@ function getConnection(&$link = NULL)
     static $link = NULL;
 	
 	if ($link === NULL) {
-		$link = mysqli_connect('localhost', 'lightmvcuser', 'testpass', 'lightmvctestdb');
+		$link = mysqli_connect('localhost:3307', 'lightmvcuser', 'testpass', 'lightmvctestdb');
 	}
 	return $link;	
 }
