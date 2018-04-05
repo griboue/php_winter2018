@@ -8,17 +8,27 @@
 include "include/controller1.php";
 include "include/controller2.php";
 
-class Controller{
+class Front_controller{
 
     public function __construct()
     {
-        echo "Choose a controller: ";
-        $input = readline();
-        if($input == "1")
-            $controller = new controller1();
-        else
-            $controller = new controller2();
+        $url = $_SERVER['REQUEST_URI'];
+        $array = explode("/", $url);
+
+        if (!isset($array[5]) && isset($array[4])) {
+            switch ($array[4])
+            {
+                case 1:
+                    $controller = new controller1();
+                    break;
+                case 2:
+                    $controller = new controller2();
+                    break;
+                default :
+                    echo "Wrong input!";
+            }
+        }
     }
 }
 
-$front_controller = new Controller();
+$front_controller = new Front_controller();
