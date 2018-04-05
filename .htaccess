@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !^/php_winter2018/Lab3_WU/
-RewriteRule .* /php_winter2018/Lab3_WU/front_controller.php [L,R=302]

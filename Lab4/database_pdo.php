@@ -16,9 +16,9 @@ function getConnection()
     if ($pdo === NULL) {
 
         $type = "mysql";
-        $host = "localhost";
+        $host = "localhost:9999";
         $username = "lightmvcuser";
-        $pwd = "123";
+        $pwd = "testpass";
         $dbname = "lightmvctestdb";
         $dsn = "$type:host=$host;dbname=$dbname";
 
