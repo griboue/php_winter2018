@@ -4,16 +4,34 @@
  * This file should contain your front controller and basic routing mechanism
  * in order to call the appropriate controller contained in the 'include' folder.
  */
-$url = parse_url($_SERVER["REQUEST_URI"],PHP_URL_QUERY);
+$url_array = parse_url($_SERVER["REQUEST_URI"]); // parse the request url into an array
+$path = explode("/", $url_array["path"]); // split the string in the path case into a array
+$controllerOption = $path[sizeof($path)-1]; // assign the last case of path array, which is the name of controller file to the controllerOption
+$funtionOptions = explode("&", $url_array["query"]); // split the query options in the path case into the function option array
 
-switch ($url) {
+/*
+ * url example : "http://localhost/phpwinter2018/Lab3_WU/front_controller.php/controller2?f1&f2"
+ * */
+switch ($controllerOption) {
     // controller1
     case 'controller1':
-        require 'include/controller1.php';
+        include 'include/controller1.php';
+        $rc = new ReflectionClass("Controller1");
+        foreach ($funtionOptions as $function){
+            if ($rc->hasMethod($function)) {
+                Controller1::$function();
+            }
+        }
         break;
     // controller2
     case 'controller2':
-        require 'include/controller2.php';
+        include 'include/controller2.php';
+        $rc = new ReflectionClass("Controller2");
+        foreach ($funtionOptions as $function){
+            if ($rc->hasMethod($function)) {
+                Controller2::$function();
+            }
+        }
         break;
     // not found page
     default:
