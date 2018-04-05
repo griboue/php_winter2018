@@ -8,16 +8,23 @@
 
 class database_pdo
 {
+    // pdo instance
     private $db = null;
+    // database_pdo instance (singleton)
     private static $instance = null;
 
     private $user = "lightmvcuser";
     private $pass = "testpass";
 
-
     private function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=lightmvctestdb ', $this->user, $this->pass);
+        try
+        {
+            $this->db = new PDO('mysql:host=localhost;port=3307;dbname=lightmvctestdb', $this->user, $this->pass);
+        }catch(PDOException $e)
+        {
+           echo $e->getMessage();
+        }
     }
 
     //singleton
@@ -35,28 +42,18 @@ class database_pdo
         self::$instance = null;
     }
 
-    public function getQuote()
-    {
-        return "'";
-    }
-
     public function getCustomers(array $where = array(), $andOr = 'AND')
     {
-      /*  $query = self::getInstance()->prepare('SELECT name, colour, calories FROM fruit
-        WHERE calories < :calories AND colour = :colour');
-        $query->bindParam(':calories', $calories);
-        $query->bindParam(':colour', $colour);*/
-
         $query = 'SELECT `id`,`firstname`,`lastname` FROM `customers`';
         if ($where) {
             $query .= ' WHERE ';
             foreach ($where as $column => $value) {
-                $query .= $column . ' = ' . getQuote() . $value . getQuote() . ' ' . $andOr;
+                $query .= $column . ' = ' . $this->db->quote($value) . ' ' . $andOr;
             }
             $query = substr($query, 0, -(strlen($andOr)));
         }
 
-        $query = self::getInstance()->prepare($query);
+        $query = $this->db->prepare($query);
         $query->execute();
 
         return $query->fetchAll();
@@ -64,3 +61,22 @@ class database_pdo
 }
 
 
+$database_pdo = database_pdo::getInstance();
+
+$myArray = $database_pdo->getCustomers(array('id' => '3'));
+
+$database_pdo->closeInstance();
+
+$htmlOut = "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n<table>\n";
+
+foreach ($myArray as $tableRow) {
+    $htmlOut .= "\t<tr>\n";
+    foreach ($tableRow as $tableCol) {
+        $htmlOut .= "\t\t<td align=\"center\">$tableCol</td>\n";
+    }
+    $htmlOut .= "\t</tr>\n";
+}
+
+$htmlOut .= "</table>\n</body>\n</html>";
+
+echo $htmlOut;
