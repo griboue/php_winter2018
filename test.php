@@ -54,7 +54,7 @@ echo $a . " " . $b . PHP_EOL;
 swape($a, $b);
 echo $a . " " . $b . PHP_EOL;
 
-
+echo md5("123");
 
 
 
