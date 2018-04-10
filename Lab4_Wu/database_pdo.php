@@ -16,7 +16,7 @@ function getConnection()
     if ($pdo === NULL) {
 
         $type = "mysql";
-        $host = "localhost:9999";
+        $host = "localhost";
         $username = "lightmvcuser";
         $pwd = "testpass";
         $dbname = "lightmvctestdb";
@@ -62,7 +62,7 @@ function getCustomers(array $where = array(), $andOr = 'AND')
     return $result->fetchAll(PDO::FETCH_ASSOC);
 }
 
-$myArray = getCustomers(array('lastname' => 'Wu'));
+$myArray = getCustomers();
 
 closeConnection();
 

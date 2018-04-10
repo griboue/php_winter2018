@@ -4,6 +4,7 @@
  * This file should contain your front controller and basic routing mechanism
  * in order to call the appropriate controller contained in the 'include' folder.
  */
+
 $url_array = parse_url($_SERVER["REQUEST_URI"]); // parse the request url into an array
 $path = explode("/", $url_array["path"]); // split the string in the path case into a array
 $controllerOption = $path[sizeof($path)-1]; // assign the last case of path array, which is the name of controller file to the controllerOption
@@ -16,26 +17,14 @@ switch ($controllerOption) {
     // controller1
     case 'controller1':
         include 'include/controller1.php';
-        $rc = new ReflectionClass("Controller1");
-        foreach ($funtionOptions as $function){
-            if ($rc->hasMethod($function)) {
-                Controller1::$function();
-            }
-        }
         break;
     // controller2
     case 'controller2':
         include 'include/controller2.php';
-        $rc = new ReflectionClass("Controller2");
-        foreach ($funtionOptions as $function){
-            if ($rc->hasMethod($function)) {
-                Controller2::$function();
-            }
-        }
         break;
     // not found page
     default:
         echo "<h1>page not found !!</h1>";
         break;
 }
-
+?>
