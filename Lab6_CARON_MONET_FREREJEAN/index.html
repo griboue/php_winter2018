@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+
+<h1>API test</h1>
+<script>
+
+    setInterval(function(){
+        $.ajax({
+            url: '/phpwinter2018/Lab6/api.php',
+            dataType: 'json',
+            success: function (resp) {
+                console.log("succes");
+                console.log(resp);
+            },
+            error: function (req, status, err) {
+                console.log('Something went wrong', status, err);
+            }
+        });
+    }, 3000); // 3 seconds
+
+
+</script>
+</body>
+</html>
